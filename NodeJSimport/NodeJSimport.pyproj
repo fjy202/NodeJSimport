@@ -4,13 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>1861295b-1a66-413e-8e52-728c426bf331</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>NodeJSimport.py</StartupFile>
+    <StartupFile>setup.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>NodeJSimport</Name>
     <RootNamespace>NodeJSimport</RootNamespace>
+    <InterpreterId>MSBuild|env1|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,6 +23,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="NodeJSimport.py" />
+    <Compile Include="setup.py" />
+    <Compile Include="setup_cython.py" />
+    <Compile Include="test.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="testjs.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env1\">
+      <Id>env1</Id>
+      <Version>3.7</Version>
+      <Description>env1 (Python 3.7)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>
+      </Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
